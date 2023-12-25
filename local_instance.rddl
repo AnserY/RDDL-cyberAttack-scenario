@@ -1,0 +1,72 @@
+non-fluents network {
+	domain = exampleLang;
+	
+	objects{
+		host: {h1, h2, h3, h4, h5, h6, h7, h8, h9, h10};
+		password: {p1, p2, p3, p4, p5, p6, p7, p8, p9, p10};
+	};
+
+
+	non-fluents {
+		CONNECTED(h1, h5);
+		CONNECTED(h2, h4);
+		CONNECTED(h3, h10);
+		CONNECTED(h4, h7);
+		CONNECTED(h5, h2);
+		CONNECTED(h6, h4);
+		CONNECTED(h7, h10);
+		CONNECTED(h8, h4);
+		CONNECTED(h9, h1);
+		CONNECTED(h10, h2);
+		CONNECTED(h10, h5);
+		CONNECTED(h8, h6);
+		CONNECTED(h8, h2);
+		CONNECTED(h10, h2);
+		CONNECTED(h7, h5);
+		CONNECTED(h4, h1);
+		CONNECTED(h9, h8);
+		ACCESSES(p1, h1);
+		ACCESSES(p2, h2);
+		ACCESSES(p3, h3);
+		ACCESSES(p4, h4);
+		ACCESSES(p5, h5);
+		ACCESSES(p6, h6);
+		ACCESSES(p7, h7);
+		ACCESSES(p8, h8);
+		ACCESSES(p9, h9);
+		ACCESSES(p10, h10);
+	};
+}
+instance network_instance {
+	domain = exampleLang;
+	non-fluents = network;
+
+	init-state{
+		hack(h1)= true;
+		remainingTimeToPhish(p1)=10;
+		remainingTimeToPhish(p2)=5;
+		remainingTimeToPhish(p3)=9;
+		remainingTimeToPhish(p4)=9;
+		remainingTimeToPhish(p5)=3;
+		remainingTimeToPhish(p6)=11;
+		remainingTimeToPhish(p7)=16;
+		remainingTimeToPhish(p8)=14;
+		remainingTimeToPhish(p9)=4;
+		remainingTimeToPhish(p10)=8;
+		hostValue(h1) = 0;
+		hostValue(h2) = 15;
+		hostValue(h3) = 10;
+		hostValue(h4) = 1;
+		hostValue(h5) = 2;
+		hostValue(h6) = 16;
+		hostValue(h7) = 8;
+		hostValue(h8) = 16;
+		hostValue(h9) = 6;
+		hostValue(h10) = 7;
+
+	};
+	
+	max-nondef-actions = 1;
+	horizon = 512;
+	discount = 1.0;
+}
