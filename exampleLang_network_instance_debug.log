@@ -1,0 +1,393 @@
+2023-12-26 11:25:15.513983: initializing pvariable tensors:
+	CONNECTED['host', 'host'], shape=(10, 10), dtype=bool
+	ACCESSES['password', 'host'], shape=(10, 10), dtype=bool
+	hack['host'], shape=(10,), dtype=bool
+	hack'['host'], shape=(10,), dtype=bool
+	phish['password'], shape=(10,), dtype=bool
+	phish'['password'], shape=(10,), dtype=bool
+	attemptHack['host'], shape=(10,), dtype=bool
+	attemptPhishing['password'], shape=(10,), dtype=bool
+	observed_attemptPhishing['password'], shape=(10,), dtype=bool
+	observed_attemptHacking['host'], shape=(10,), dtype=bool
+	remainingTimeToPhish['password'], shape=(10,), dtype=int64
+	remainingTimeToPhish'['password'], shape=(10,), dtype=int64
+	hackable['host'], shape=(10,), dtype=bool
+	hackable'['host'], shape=(10,), dtype=bool
+	hostValue['host'], shape=(10,), dtype=int64
+	hostValue'['host'], shape=(10,), dtype=int64
+
+2023-12-26 11:25:15.514542: computed fluent dependencies in CPFs:
+	next-state-fluent hack': {hack, phish, attemptHack}
+	next-state-fluent remainingTimeToPhish': {remainingTimeToPhish, attemptPhishing, phish}
+	next-state-fluent phish': {remainingTimeToPhish, attemptPhishing, phish}
+	observ-fluent observed_attemptHacking: {attemptHack}
+	observ-fluent observed_attemptPhishing: {attemptPhishing}
+	next-state-fluent hackable': {hack}
+	next-state-fluent hostValue': {hack, hostValue}
+
+2023-12-26 11:25:15.514600: computed order of CPF evaluation:
+	0: {observed_attemptHacking, phish', remainingTimeToPhish', hack', hostValue', hackable', observed_attemptPhishing}
+
+2023-12-26 11:25:15.514785: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932d730>
+	variable                =attemptHack
+	variable evaluated at   =[('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.514997: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932dd90>
+	variable                =phish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515122: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa6493344f0>
+	variable                =attemptPhishing
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515236: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932da60>
+	variable                =remainingTimeToPhish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515412: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649334940>
+	variable                =phish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515543: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932d550>
+	variable                =phish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515675: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932df10>
+	variable                =attemptPhishing
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515782: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932dfd0>
+	variable                =remainingTimeToPhish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.515914: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932d5e0>
+	variable                =remainingTimeToPhish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.516030: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649334430>
+	variable                =remainingTimeToPhish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.516148: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64931eee0>
+	variable                =hack
+	variable evaluated at   =[('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.516315: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932daf0>
+	variable                =CONNECTED
+	variable evaluated at   =[('?hs', 'host'), ('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	slice                   =()
+	new axes to append      =(2,)
+	broadcast shape         =(10, 10, 10)
+	transform operation     =1 with argument(s) (1, 0, 2)
+
+2023-12-26 11:25:15.516420: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932db50>
+	variable                =attemptHack
+	variable evaluated at   =[('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	slice                   =()
+	new axes to append      =(1, 2)
+	broadcast shape         =(10, 10, 10)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.516545: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932dc10>
+	variable                =hack
+	variable evaluated at   =[('?hs', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	slice                   =()
+	new axes to append      =(1, 2)
+	broadcast shape         =(10, 10, 10)
+	transform operation     =1 with argument(s) (1, 0, 2)
+
+2023-12-26 11:25:15.516667: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932dcd0>
+	variable                =phish
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	slice                   =()
+	new axes to append      =(1, 2)
+	broadcast shape         =(10, 10, 10)
+	transform operation     =1 with argument(s) (1, 2, 0)
+
+2023-12-26 11:25:15.516800: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932de80>
+	variable                =ACCESSES
+	variable evaluated at   =[('?p', 'password'), ('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	slice                   =()
+	new axes to append      =(2,)
+	broadcast shape         =(10, 10, 10)
+	transform operation     =1 with argument(s) (1, 2, 0)
+
+2023-12-26 11:25:15.516881: computing object info for aggregation:
+	aggregation variables(s)      =[('typed_var', ('?hs', 'host')), ('typed_var', ('?p', 'password'))]
+	free object(s) in outer scope =[('?ht', 'host')]
+	free object(s) in inner scope =[('?ht', 'host'), ('?hs', 'host'), ('?p', 'password')]
+	aggregation operation         =exists
+	aggregation axes              =(1, 2)
+
+2023-12-26 11:25:15.517012: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa64932d850>
+	variable                =hack
+	variable evaluated at   =[('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.517126: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649334730>
+	variable                =hack
+	variable evaluated at   =[('?h', 'host')]
+	free object(s) in scope =[('?h', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.517240: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649275760>
+	variable                =hostValue
+	variable evaluated at   =[('?h', 'host')]
+	free object(s) in scope =[('?h', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.517359: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649334550>
+	variable                =hack
+	variable evaluated at   =[('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.517509: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649334fd0>
+	variable                =CONNECTED
+	variable evaluated at   =[('?hs', 'host'), ('?ht', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10, 10)
+	transform operation     =1 with argument(s) (1, 0)
+
+2023-12-26 11:25:15.517632: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649275400>
+	variable                =hack
+	variable evaluated at   =[('?hs', 'host')]
+	free object(s) in scope =[('?ht', 'host'), ('?hs', 'host')]
+	slice                   =()
+	new axes to append      =(1,)
+	broadcast shape         =(10, 10)
+	transform operation     =1 with argument(s) (1, 0)
+
+2023-12-26 11:25:15.517690: computing object info for aggregation:
+	aggregation variables(s)      =[('typed_var', ('?hs', 'host'))]
+	free object(s) in outer scope =[('?ht', 'host')]
+	free object(s) in inner scope =[('?ht', 'host'), ('?hs', 'host')]
+	aggregation operation         =exists
+	aggregation axes              =(1,)
+
+2023-12-26 11:25:15.517840: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa6493343d0>
+	variable                =attemptPhishing
+	variable evaluated at   =[('?p', 'password')]
+	free object(s) in scope =[('?p', 'password')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.518010: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649431430>
+	variable                =hostValue
+	variable evaluated at   =[('?h', 'host')]
+	free object(s) in scope =[('?h', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.518110: computing info for pvariable tensor transformation:
+	address of expression   =<pyRDDLGym.Core.Parser.expr.Expression object at 0x7fa649275880>
+	variable                =hack
+	variable evaluated at   =[('?h', 'host')]
+	free object(s) in scope =[('?h', 'host')]
+	slice                   =()
+	new axes to append      =()
+	broadcast shape         =(10,)
+	transform operation     =2 with argument(s) None
+
+2023-12-26 11:25:15.518166: computing object info for aggregation:
+	aggregation variables(s)      =[('typed_var', ('?h', 'host'))]
+	free object(s) in outer scope =[]
+	free object(s) in inner scope =[('?h', 'host')]
+	aggregation operation         =sum
+	aggregation axes              =(0,)
+
+2023-12-26 11:25:15.519018: computed simulation bounds:
+	hack___h1: [-inf, inf]
+	hack___h2: [-inf, inf]
+	hack___h3: [-inf, inf]
+	hack___h4: [-inf, inf]
+	hack___h5: [-inf, inf]
+	hack___h6: [-inf, inf]
+	hack___h7: [-inf, inf]
+	hack___h8: [-inf, inf]
+	hack___h9: [-inf, inf]
+	hack___h10: [-inf, inf]
+	phish___p1: [-inf, inf]
+	phish___p2: [-inf, inf]
+	phish___p3: [-inf, inf]
+	phish___p4: [-inf, inf]
+	phish___p5: [-inf, inf]
+	phish___p6: [-inf, inf]
+	phish___p7: [-inf, inf]
+	phish___p8: [-inf, inf]
+	phish___p9: [-inf, inf]
+	phish___p10: [-inf, inf]
+	attemptHack___h1: [-inf, inf]
+	attemptHack___h2: [-inf, inf]
+	attemptHack___h3: [-inf, inf]
+	attemptHack___h4: [-inf, inf]
+	attemptHack___h5: [-inf, inf]
+	attemptHack___h6: [-inf, inf]
+	attemptHack___h7: [-inf, inf]
+	attemptHack___h8: [-inf, inf]
+	attemptHack___h9: [-inf, inf]
+	attemptHack___h10: [-inf, inf]
+	attemptPhishing___p1: [-inf, inf]
+	attemptPhishing___p2: [-inf, inf]
+	attemptPhishing___p3: [-inf, inf]
+	attemptPhishing___p4: [-inf, inf]
+	attemptPhishing___p5: [-inf, inf]
+	attemptPhishing___p6: [-inf, inf]
+	attemptPhishing___p7: [-inf, inf]
+	attemptPhishing___p8: [-inf, inf]
+	attemptPhishing___p9: [-inf, inf]
+	attemptPhishing___p10: [-inf, inf]
+	observed_attemptPhishing___p1: [-inf, inf]
+	observed_attemptPhishing___p2: [-inf, inf]
+	observed_attemptPhishing___p3: [-inf, inf]
+	observed_attemptPhishing___p4: [-inf, inf]
+	observed_attemptPhishing___p5: [-inf, inf]
+	observed_attemptPhishing___p6: [-inf, inf]
+	observed_attemptPhishing___p7: [-inf, inf]
+	observed_attemptPhishing___p8: [-inf, inf]
+	observed_attemptPhishing___p9: [-inf, inf]
+	observed_attemptPhishing___p10: [-inf, inf]
+	observed_attemptHacking___h1: [-inf, inf]
+	observed_attemptHacking___h2: [-inf, inf]
+	observed_attemptHacking___h3: [-inf, inf]
+	observed_attemptHacking___h4: [-inf, inf]
+	observed_attemptHacking___h5: [-inf, inf]
+	observed_attemptHacking___h6: [-inf, inf]
+	observed_attemptHacking___h7: [-inf, inf]
+	observed_attemptHacking___h8: [-inf, inf]
+	observed_attemptHacking___h9: [-inf, inf]
+	observed_attemptHacking___h10: [-inf, inf]
+	remainingTimeToPhish___p1: [-inf, inf]
+	remainingTimeToPhish___p2: [-inf, inf]
+	remainingTimeToPhish___p3: [-inf, inf]
+	remainingTimeToPhish___p4: [-inf, inf]
+	remainingTimeToPhish___p5: [-inf, inf]
+	remainingTimeToPhish___p6: [-inf, inf]
+	remainingTimeToPhish___p7: [-inf, inf]
+	remainingTimeToPhish___p8: [-inf, inf]
+	remainingTimeToPhish___p9: [-inf, inf]
+	remainingTimeToPhish___p10: [-inf, inf]
+	hackable___h1: [-inf, inf]
+	hackable___h2: [-inf, inf]
+	hackable___h3: [-inf, inf]
+	hackable___h4: [-inf, inf]
+	hackable___h5: [-inf, inf]
+	hackable___h6: [-inf, inf]
+	hackable___h7: [-inf, inf]
+	hackable___h8: [-inf, inf]
+	hackable___h9: [-inf, inf]
+	hackable___h10: [-inf, inf]
+	hostValue___h1: [-inf, inf]
+	hostValue___h2: [-inf, inf]
+	hostValue___h3: [-inf, inf]
+	hostValue___h4: [-inf, inf]
+	hostValue___h5: [-inf, inf]
+	hostValue___h6: [-inf, inf]
+	hostValue___h7: [-inf, inf]
+	hostValue___h8: [-inf, inf]
+	hostValue___h9: [-inf, inf]
+	hostValue___h10: [-inf, inf]
+

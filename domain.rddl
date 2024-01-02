@@ -21,10 +21,10 @@ domain exampleLang{
         attemptPhishing(password) : {action-fluent, bool, default=false};
 
         // observations
-        observed_attemptPhishing(password) :  {observ-fluent, bool};
-        observed_attemptHacking(host) :  {observ-fluent, bool};
+        observed_attemptPhishing(password) :  {state-fluent, bool, default = false};
+        observed_attemptHacking(host) :  {state-fluent, bool, default = false};
 
-        // Number of time the hack need to attemptPhishing 
+        // Number of time the hack need to phish 
         remainingTimeToPhish(password) : {state-fluent, int, default=0}; 
 
         // hackable: used to desing a "smart-agent" in order hack max number of host 
@@ -53,13 +53,13 @@ domain exampleLang{
             then KronDelta(true)
         else phish(?p);
 
-        observed_attemptHacking(?ht) =
+        observed_attemptHacking'(?ht) =
         if(attemptHack(?ht))
             then Bernoulli(0.9) 
         else  Bernoulli(0.1);
 
         
-        observed_attemptPhishing(?p) =
+        observed_attemptPhishing'(?p) =
         if (attemptPhishing(?p))
             then Bernoulli(0.9)
         else Bernoulli(0.1);
