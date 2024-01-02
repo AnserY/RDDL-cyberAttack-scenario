@@ -1,0 +1,81 @@
+domain exampleLang{
+
+    types {
+        host : object;
+        password : object; 
+    };
+
+    pvariables {
+
+        // Associations - state non-fluent
+        CONNECTED(host,host) : {non-fluent, bool, default=false};
+        ACCESSES(password,host) : {non-fluent, bool, default=false};
+        
+        // State fluents
+        hack(host) : {state-fluent, bool, default=false};
+        phish(password) : {state-fluent, bool, default=false};
+
+
+        // Action variables
+        attemptHack(host) : {action-fluent, bool, default=false}; 
+        attemptPhishing(password) : {action-fluent, bool, default=false};
+
+        // observations
+        observed_attemptPhishing(password) :  {state-fluent, bool, default = false};
+        observed_attemptHacking(host) :  {state-fluent, bool, default = false};
+
+        // Number of time the hack need to phish 
+        remainingTimeToPhish(password) : {state-fluent, int, default=0}; 
+
+        // hackable: used to desing a "smart-agent" in order hack max number of host 
+        hackable(host) : {state-fluent, bool, default=false}; 
+        
+        hostValue(host)  : {state-fluent, int, default=0}; 
+    };
+
+
+// probability in the next state for: hack, phish, observed variable and the remainingTimeToPhish
+
+
+    cpfs{
+        hack'(?ht) = 
+        if(~hack(?ht) ^ exists_{?hs: host, ?p:password} [CONNECTED(?hs,?ht) ^ attemptHack(?ht) ^ hack(?hs) ^ phish(?p) ^ ACCESSES(?p,?ht)])
+            then KronDelta(true)
+        else hack(?ht);
+
+        remainingTimeToPhish'(?p) = 
+        if (~phish(?p) ^ attemptPhishing(?p) ^ remainingTimeToPhish(?p)>0)
+            then (remainingTimeToPhish(?p) -1)
+        else remainingTimeToPhish(?p);
+        
+        phish'(?p) = 
+        if (~phish(?p) ^ attemptPhishing(?p) ^ remainingTimeToPhish(?p) < 1)
+            then KronDelta(true)
+        else phish(?p);
+
+        observed_attemptHacking'(?ht) =
+        if(attemptHack(?ht))
+            then Bernoulli(0.9) 
+        else  Bernoulli(0.1);
+
+        
+        observed_attemptPhishing'(?p) =
+        if (attemptPhishing(?p))
+            then Bernoulli(0.9)
+        else Bernoulli(0.1);
+
+        hackable'(?ht) =
+        if(~hack(?ht) ^ exists_{?hs:host} [CONNECTED(?hs,?ht) ^ hack(?hs)])
+            then KronDelta(true)
+        else KronDelta(false);
+
+
+        hostValue'(?h) = 
+        if (hack(?h))
+            then 0
+        else hostValue(?h);
+    };
+
+    reward = (sum_{?h: host} [hostValue(?h) * hack(?h)]);
+
+}

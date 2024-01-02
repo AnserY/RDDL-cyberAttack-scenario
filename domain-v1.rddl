@@ -21,8 +21,8 @@ domain exampleLang{
         attemptPhishing(password) : {action-fluent, bool, default=false};
 
         // observations
-        observed_attemptPhishing(password) :  {state-fluent, bool, default = false};
-        observed_attemptHacking(host) :  {state-fluent, bool, default = false};
+        observed_attemptPhishing(password) :  {observ-fluent, bool};
+        observed_attemptHacking(host) :  {observ-fluent, bool};
 
         // Number of time the hack need to phish 
         remainingTimeToPhish(password) : {state-fluent, int, default=0}; 
